@@ -26,28 +26,7 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
         </div>
     </nav>
 
@@ -64,24 +43,56 @@
                             Cô bé choàng khăn đỏ
                         </a>
                         <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-                        <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-                        <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-                        <a class="list-group-item list-group-item-action disabled">A disabled link item</a>
                     </div>
                     
                   </div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-8">
                 <div class="card">
-                    <h4 class="card-header text-center">
-                        Cô bé choàng khăn đỏ
-                        <button onclick="convertTextToAudio('Matthew')">
-                          <i class="fa fa-volume-up" aria-hidden="true"></i>
-                        </button>
-                    </h4>
+                    <div class="card-header d-flex justify-content-between">
+                        <h4 id="title-content">Cô bé choàng khăn đỏ</h4>
+
+                        <div>
+                          <button class="ml-1" style="border: none;" onclick="convertTextToAudio('Joanna')">
+                            <i class="fa fa-volume-up" aria-hidden="true"></i>
+                          </button>
+  
+                          <!-- Example single danger button -->
+                          <div class="btn-group ml-5">
+                            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                              Translate
+                            </button>
+
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" value="ar" onclick="return translateContent('ar');">Arabic (arb)</a>
+                              <a class="dropdown-item" value="ca" onclick="return translateContent('ca');">Catalan (ca-ES)</a>
+                              <a class="dropdown-item" value="zh" onclick="return translateContent('zh');">Chinese, Mandarin (cmn-CN)</a>
+                              <a class="dropdown-item" value="da" onclick="return translateContent('da');">Danish (da-DK)</a>
+                              <a class="dropdown-item" value="nl" onclick="return translateContent('nl');">Dutch (nl-NL)</a>
+                              <a class="dropdown-item" value="en" onclick="return translateContent('en');">English (US) (en-US)</a>
+                              <a class="dropdown-item" value="fr" onclick="return translateContent('fr');">French (fr-FR)</a>
+                              <a class="dropdown-item" value="de" onclick="return translateContent('de');">German (de-DE)</a>
+                              <a class="dropdown-item" value="hi" onclick="return translateContent('hi');">Hindi (hi-IN)</a>
+                              <a class="dropdown-item" value="is" onclick="return translateContent('is');">Icelandic (is-IS)</a>
+                              <a class="dropdown-item" value="it" onclick="return translateContent('it');">Italian (it-IT)</a>
+                              <a class="dropdown-item" value="ja" onclick="return translateContent('ja');">Japanese (ja-JP)</a>
+                              <a class="dropdown-item" value="ko" onclick="return translateContent('ko');">Korean (ko-KR)</a>
+                              <a class="dropdown-item" value="no" onclick="return translateContent('no');">Norwegian (nb-NO)</a>
+                              <a class="dropdown-item" value="pl" onclick="return translateContent('pl');">Polish (pl-PL)</a>
+                              <a class="dropdown-item" value="pt" onclick="return translateContent('pt');">Portuguese (European) (pt-PT)</a>
+                              <a class="dropdown-item" value="ro" onclick="return translateContent('ro');">Romanian (ro-RO)</a>
+                              <a class="dropdown-item" value="ru" onclick="return translateContent('ru');">Russian (ru-RU)</a>
+                              <a class="dropdown-item" value="es" onclick="return translateContent('es');">Spanish (European) (es-ES)</a>
+                              <a class="dropdown-item" value="sv" onclick="return translateContent('sv');">Swedish (sv-SE)</a>
+                              <a class="dropdown-item" value="tr" onclick="return translateContent('tr');">Turkish (tr-TR)</a>
+                              <a class="dropdown-item" value="cy" onclick="return translateContent('cy');">Welsh (cy-GB)</a>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <p class="card-text" id="main-content">
-                            Hello Trung
+                          Ngày xưa có một cô bé thùy mị, dễ thương. Cưng cô nhất vẫn là bà nội, có cái gì bà cũng để phần cháu. Một lần bà cho cô bé một chiếc khăn quàng bằng nhung đỏ. Chiếc khăn rất hợp với cô, đi đâu cô cũng chỉ thích quàng chiếc khăn đó, vì vậy mọi người đều gọi cô là cô bé Khăn đỏ.
                         </p>
 
                         <div class="polly" style="text-align: center;">
@@ -92,7 +103,7 @@
                       </div>
                     </div>
                     <div class="card-footer text-muted text-center">
-                        Đề tài Amazon Polly © HCMUTE
+                        Đề tài Amazon Polly © HCMUTE 2022
                     </div>
                 </div>
             </div>

@@ -7,11 +7,12 @@ AWS.config.update({accessKeyId: aws_access_key_id, secretAccessKey: aws_secret_a
 var translate = new AWS.Translate({region: AWS.config.region});
 
 
+const titleContent = document.getElementById('title-content')
 const mainContent = document.getElementById('main-content')
 
 const convertTextToAudio = (voiceID) => {
     if(voiceID == null){
-        alert('Polly doesnt support this language but Translate does :D')
+        alert('Dịch nội dung thành công, nhưng ngôn ngữ này hiện tại Amazon Polly chưa hỗ trợ chuyển sang giọng nói!')
         return;
     }
 
@@ -32,7 +33,6 @@ const convertTextToAudio = (voiceID) => {
         } else {
             document.getElementById('audioSource').src = url;
             document.getElementById('audioPlayback').load();
-            //document.getElementById('audioPlayback').play();
         }
     });
 }
@@ -63,6 +63,13 @@ const translateContent = (targetLanguage) => {
         if (data) {
             mainContent.innerText = data.TranslatedText;
             convertTextToAudio(convertTargetLanguageToVoiceID(targetLanguage));
+        }
+    });
+
+    params.Text = titleContent.innerText;
+    translate.translateText(params, function(err, data) {
+        if (data) {
+            titleContent.innerText = data.TranslatedText;
         }
     });
 }
@@ -115,4 +122,3 @@ const convertTargetLanguageToVoiceID = (targetLanguage) => {
     return voiceId;
 }
 
-translateContent("ar")
