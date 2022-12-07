@@ -1,3 +1,35 @@
+<?php
+require './config.php';
+
+$comicInfo = null;
+
+$sql = "SELECT * FROM `comics`";
+if(isset($_GET["id"]) && is_numeric($_GET["id"])) {
+  $sqlInfo = "SELECT * FROM `comics` WHERE `id` = " . $_GET["id"];
+  $result = $conn->query($sqlInfo);
+  if ($result->num_rows == 1) {
+    $comicInfo = $result->fetch_assoc();
+  }
+}
+
+$result = $conn->query($sql);
+
+$xhtmlMenu = "";
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    $classActive = "";
+    if($comicInfo && $row["id"] == $comicInfo["id"]) {
+      $classActive = "active";
+    }
+    $xhtmlMenu .= '<a href="?id='. $row["id"] .'" class="list-group-item list-group-item-action '.$classActive.'" aria-current="true">';
+    $xhtmlMenu .= $row["title"];
+    $xhtmlMenu .= '</a>';
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +37,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazon Polly</title>
-    <link rel="shortcut icon" type="image/png" href="../logo.png" />
+    <link rel="shortcut icon" type="image/png" href="./logo.png" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,7 +46,7 @@
 <body>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="./index.php">
             <i class="fa fa-home fa-2x" aria-hidden="true"></i>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +56,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="./index.php">Home <span class="sr-only">(current)</span></a>
             </li>
           </ul>
         </div>
@@ -39,9 +71,9 @@
                     </h4>
 
                     <div class="list-group list-group-flush">
-                        <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                            Cô bé choàng khăn đỏ
-                        </a>
+                      <?php
+                        echo $xhtmlMenu;
+                      ?>
                     </div>
                     
                   </div>
@@ -49,13 +81,16 @@
             <div class="col-sm-8">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        <h4 id="title-content">Cô bé choàng khăn đỏ</h4>
-
+                        <h4 id="title-content">
+                          <?php
+                            if($comicInfo != null) echo $comicInfo["title"];
+                            else echo "Hãy chọn truyện cần đọc";
+                          ?>
+                        </h4>
                         <div>
                           <button class="ml-1" style="border: none;" onclick="convertTextToAudio('Joanna')">
                             <i class="fa fa-volume-up" aria-hidden="true"></i>
                           </button>
-  
                           <!-- Example single danger button -->
                           <div class="btn-group ml-5">
                             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -91,7 +126,9 @@
                     </div>
                     <div class="card-body">
                         <p class="card-text" id="main-content">
-                          Ngày xưa có một cô bé thùy mị, dễ thương. Cưng cô nhất vẫn là bà nội, có cái gì bà cũng để phần cháu. Một lần bà cho cô bé một chiếc khăn quàng bằng nhung đỏ. Chiếc khăn rất hợp với cô, đi đâu cô cũng chỉ thích quàng chiếc khăn đó, vì vậy mọi người đều gọi cô là cô bé Khăn đỏ.
+                        <?php
+                          if($comicInfo != null) echo $comicInfo["content"];
+                        ?>
                         </p>
 
                         <div class="polly" style="text-align: center;">
@@ -115,8 +152,14 @@
 
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1135.0.min.js"></script>
 
-    <script src="/scripts/aws.js"></script>
+    <script src="./scripts/aws.js"></script>
 </body>
 
 
 </html>
+
+
+
+<?php
+mysqli_close($conn);
+?>
