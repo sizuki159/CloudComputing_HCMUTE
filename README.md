@@ -5,16 +5,20 @@
 * Trịnh Công Huynh – 19110219 - 19110219@student.hcmute.edu.vn
 
 ## Các nội dung chính
-* Tìm hiểu Amazon Polly
-* Xây dựng website đọc truyện audio đơn giản
+* Tìm hiểu Amazon Polly, Translate và một số service khác như EC2, RDS
+* Xây dựng website đọc truyện nước ngoài có audio đơn giản
 
 ## Công nghệ sử dụng
 * Amazon Polly
 * Amazon Translate
+* Amazon EC2
+* Amazon RDS
 
 ## Những gì nhóm đã làm được
 * Tìm hiểu về cơ sở lý thuyết của Amazon Polly và Amazon Translate
 * Cài đặt và chạy được Amazon Polly, Amazon Translate trên website
+* Sử dụng EC2 để upload mã nguồn code và public trang web
+* Sử dụng RDS để tạo CSDL MySQL cho website
 
 ## Video báo cáo của nhóm
 
