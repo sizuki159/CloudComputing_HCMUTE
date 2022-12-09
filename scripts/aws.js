@@ -1,6 +1,6 @@
-const aws_access_key_id = "ASIA327DRVIHQWN5JY62";
-const aws_secret_access_key = "Sk0x9yhWyMVa1cxw8t8gJVcoDOUbHFSQV37fC7Y3";
-const aws_session_token = "FwoGZXIvYXdzEPb//////////wEaDE+7CIvp/2h5kwXTSyLPAePRh4SdWy1xL8YJqtOpi4BeDa8R+QbkaSwhHgnPH1HtlDs26iHOsJWHdPSROxdOzRuHTR127yfXBk//919xbA+GzRnY6qvQMFfkQ6f36r/FqXoIPtjLQhKpvNjwfzZV5AEGyCZSSq3+n/3yJp98al8BNJ3d5mqGYp1UfSJVY3Qy0GTS3jdHs07PTlx876b6bAlI9WThIv7ghGPIePx4ucgrnSArfsGQoinfn0VYXFsZIDRLa6vDlZeM6LHcTTFiukbKs5Os7R8xKfan57/CTCjahrucBjItbco7vRrYssbjsl3iXuxc6kMDBXa0rVLDM1Om+B30gpu03PFNtJIO+YICnrW9";
+const aws_access_key_id = "ASIA327DRVIHXF2ZQWKH";
+const aws_secret_access_key = "Zs5x1tD+feme75AIbPjuxJ3miR9hmfjMn8pp/Nu3";
+const aws_session_token = "FwoGZXIvYXdzEEAaDA4VjSMigHaJUQ6eJCLPAZV0duE/s9F+SW6yv+2Crh+c4lN2mGtmJYG5x6RlRK/rZpNsHMONRHmYh/dD6h0ukE85s5fHiL7Fww+RI1SlB4jTeqYmqxRsA+jAeXPCcmtPIIP7LdRDxJzEtHSymkMXln5ctm71CTGRhZ6D/sr4sHUaI3xT1qQxkUcRdlVD0YJo3d6IzZ0ChQqjc6TpZr8qcOaKIh8pOEsn5UyhmnlWxo8pz/i1OD/esO3AfFqJTd75HdeoO70BPjmY+U3JCu76um2T4gfH9/G2PpfDZOFoPSjys8ucBjIthRR08XPljwLcBa+SuGDC8K/rsnmBOplR+3FMPaDOQU/4NCLWuBd8zweQOZEQ";
 
 AWS.config.region = 'us-east-1';
 AWS.config.update({accessKeyId: aws_access_key_id, secretAccessKey: aws_secret_access_key, sessionToken: aws_session_token});

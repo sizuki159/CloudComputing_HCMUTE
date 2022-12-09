@@ -3,7 +3,7 @@ require './config.php';
 
 $comicInfo = null;
 
-$sql = "SELECT * FROM `comics`";
+$sql = "SELECT * FROM `comics` ORDER BY id DESC";
 if(isset($_GET["id"]) && is_numeric($_GET["id"])) {
   $sqlInfo = "SELECT * FROM `comics` WHERE `id` = " . $_GET["id"];
   $result = $conn->query($sqlInfo);
@@ -68,6 +68,7 @@ if ($result->num_rows > 0) {
                 <div class="card">
                     <h4 class="card-header">
                       Danh sách truyện
+                      <a class="btn btn-primary" href="./add.php" role="button"><i class="fa fa-plus" aria-hidden="true"></i></a>
                     </h4>
 
                     <div class="list-group list-group-flush">

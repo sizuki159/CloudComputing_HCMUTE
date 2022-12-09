@@ -2,7 +2,6 @@
 
 ## Các thành viên trong nhóm
 * Nguyễn Thành Trung – 19110304 - 19110304@student.hcmute.edu.vn
-* Trịnh Công Huynh – 19110219 - 19110219@student.hcmute.edu.vn
 
 ## Các nội dung chính
 * Tìm hiểu Amazon Polly, Translate và một số service khác như EC2, RDS
