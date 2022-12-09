@@ -1,8 +1,10 @@
 <?php
-
-ob_start();
-
 require './config.php';
+
+if(!(isset($_SESSION["logged"]) && $_SESSION["logged"] == true)) {
+    header("Location: ./index.php");
+    exit();
+}
 
 if(isset($_POST["title"]) && isset($_POST["content"])) {
     $title = mysqli_escape_string($conn, $_POST["title"]);
@@ -35,22 +37,9 @@ if(isset($_POST["title"]) && isset($_POST["content"])) {
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
-        <a class="navbar-brand" href="./index.php">
-            <i class="fa fa-home fa-2x" aria-hidden="true"></i>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="./index.php">Home <span class="sr-only">(current)</span></a>
-            </li>
-          </ul>
-        </div>
-    </nav>
+    <?php
+    include_once './header.php';
+    ?>
 
     <div class="container-fluid mt-4">
         <div class="row">
