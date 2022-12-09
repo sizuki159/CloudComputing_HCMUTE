@@ -8,11 +8,11 @@ $database = "cloudcomputing";
 $username = "root";
 $password = "Trung123";
 
-$servername = "localhost";
-$port = 3306;
-$database = "cloudcomputing";
-$username = "root";
-$password = "";
+// $servername = "localhost";
+// $port = 3306;
+// $database = "cloudcomputing";
+// $username = "root";
+// $password = "";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database, $port);
