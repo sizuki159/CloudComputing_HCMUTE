@@ -21,6 +21,7 @@
 
 ## Video báo cáo của nhóm
 * Lần 1: https://youtu.be/zWWk-fKXCyQ
+* Lần 2: https://youtu.be/p9zfcNlMxSE
 
 ## Mục tiêu và hướng phát triển 
 * Tiếp tục hoàn thiện các chức năng còn thiếu.
