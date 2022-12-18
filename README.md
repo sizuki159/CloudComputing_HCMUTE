@@ -20,6 +20,7 @@
 * Sử dụng RDS để tạo CSDL MySQL cho website
 
 ## Video báo cáo của nhóm
+* Lần 1: https://youtu.be/zWWk-fKXCyQ
 
 ## Mục tiêu và hướng phát triển 
 * Tiếp tục hoàn thiện các chức năng còn thiếu.

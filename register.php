@@ -8,11 +8,11 @@ if(isset($_POST["username"])) {
     $password   = md5(mysqli_escape_string($conn, $_POST["password"]));
     $email      = mysqli_escape_string($conn, $_POST["email"]);
 
-    if(strlen($username < 3) || strlen($password < 3) || strlen($email < 3)) {
-      setcookie("error", "Register Error");
-      header("Location: register.php");
-      exit();
-    }
+    // if(strlen($username < 3) || strlen($password < 3) || strlen($email < 3)) {
+    //   setcookie("error", "Register Error");
+    //   header("Location: register.php");
+    //   exit();
+    // }
 
     $sql = "INSERT INTO `users`(`username`, `password`, `email`, `created_at`) VALUES('".$username."', '".$password."', '".$email."', '".time()."')";
     $result = $conn->query($sql);
